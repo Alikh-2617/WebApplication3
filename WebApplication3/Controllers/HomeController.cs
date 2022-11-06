@@ -27,6 +27,7 @@ namespace WebApplication3.Controllers
             ViewBag.Result = GameModel.Game(input);
             ViewBag.Counter = GameModel.counter;
             ViewBag.Gusset = input;
+            ViewBag.generedNumber1 = GameModel.genericNumber;
             HttpContext.Session.SetInt32("Session", GameModel.genericNumber);
 
             return View();
