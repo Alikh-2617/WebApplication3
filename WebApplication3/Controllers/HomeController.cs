@@ -12,9 +12,19 @@ namespace WebApplication3.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "message från Controller ";
             return View();
         }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
+
+        public ActionResult Projects()
+        {
+            return View();
+        }
+
 
         [HttpGet]
         public IActionResult Game()
