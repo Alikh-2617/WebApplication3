@@ -10,8 +10,17 @@
             string response =" ";
             if(counter == 0)
             {
+                counter++;
                 genericNumber = GenericNumber();
-
+                if (input == genericNumber)
+                {
+                    response = "Congratulating you Wine !!";
+                    counter = 0;
+                }
+                else
+                {
+                    response = "Number was not Correct ";
+                }
             }
             else
             {

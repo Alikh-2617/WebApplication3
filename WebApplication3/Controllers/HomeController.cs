@@ -22,11 +22,13 @@ namespace WebApplication3.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Game(int id)
+        public IActionResult Game(int input)
         {
-            ViewBag.Result = GameModel.Game(id);
+            ViewBag.Result = GameModel.Game(input);
             ViewBag.Counter = GameModel.counter;
+            ViewBag.Gusset = input;
             HttpContext.Session.SetInt32("Session", GameModel.genericNumber);
+
             return View();
         }
 
