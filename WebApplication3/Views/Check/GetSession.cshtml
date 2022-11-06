@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "GetSession";
+}
+
+<body>
+
+
+    <div><h1>GetSession</h1></div>
+
+    <div>
+        <!--message från View Bag -->
+        @if (ViewBag.Session != null)
+        {
+            <p>Your saved Session reads : @ViewBag.Session (from ViewBag) </p>
+        }
+
+        <!--direckt från Sesssion -->
+        @if (Context.Session.GetString("Session") != null)
+        {
+            <p>Your saved Session aread : @Context.Session.GetString("Session") (from Session  )</p>
+        }
+
+        <!-- cookien -->
+        @if (ViewBag.Cookie != null)
+        {
+            <p>Your saved Cookie reads: @ViewBag.Cookie (from ViewBag) </p>
+        }
+        @if (Context.Request.Cookies["Cookie"] != null)
+        {
+            <p>Your saved Cookie reads: @Context.Request.Cookies["Cookie"] (directly from Cookie jar )</p>
+        }
+
+        @if (ViewBag.Session == null && Context.Session.GetString("Session") == null && Context.Request.Cookies["Cookie"] == null)
+        {
+            <p> Session is NULL  </p>
+            <p> Cookie is NULL  </p>
+        }
+    </div>
+    <h7 style="border-style: ridge">Get Session View till Check Controller </h7>
+
+</body>
+

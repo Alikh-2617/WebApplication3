@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "CheckAge";
+}
+
+<body>
+    <div><h1>CheckAge</h1></div>
+
+    <div>
+        <form asp-action="CheckAge" method="post">
+            <label>Please enter your age  </label>
+            <input type="number" placeholder="Please enter your age " name="input" />  <!-- name för controller-->
+            <input type="submit" value="Check age" class="btn btn-primary" />
+        </form>
+
+        @if (ViewBag.Result != null)
+        {
+            <div>
+                <h4 style="border-style: ridge">
+                    <p>Message</p>
+                    <p>@ViewBag.Result</p>
+                </h4>
+            </div>
+        }
+    </div>
+    <h7 style="border-style: ridge">Check View till Check Controller </h7>
+
+</body>

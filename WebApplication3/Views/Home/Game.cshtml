@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewData["Title"] = "Game";
+}
+
+
+
+<body>
+    <div><h1>Game</h1></div>
+
+    <div>
+        <form asp-action="Game" method="post">
+            <label>Please enter your guessing number  </label>
+            <input type="number" placeholder="Please enter the number here " name="id" />  <!-- name för controller-->
+            <input type="submit" value="Run" class="btn btn-primary" />
+        </form>
+
+        @if (ViewBag.Result != null)
+        {
+            <div>
+                <h4 style="border-style: ridge">
+                    <p>Message</p>
+                    <p>@ViewBag.Result</p>
+                    <p>@ViewBag.Counter</p>
+                </h4>
+            </div>
+        }
+    </div>
+    <h7 style="border-style: ridge">Check View till Check Controller </h7>
+
+</body>

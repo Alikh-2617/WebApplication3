@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "About";
+}
+
+<body>
+    <div>
+        <h1>About</h1>
+    </div>
+    <div>
+        @if (ViewBag.Message != null)
+        {
+            <h5>
+                <p>@ViewBag.Message</p>
+            </h5>
+        }
+    </div>
+    <h7 style="border-style: ridge">About View till default Controller </h7>
+
+</body>
