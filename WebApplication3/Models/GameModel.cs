@@ -3,46 +3,31 @@
     public class GameModel
     {
         public static int counter = 0;
-        public static int genericNumber = 0;
 
-        public static string Game(int input)
+        public static string Game(int input, int genericNumber)
         {
-            string response =" ";
-            if(counter == 0)
+            counter++;
+            if (input > genericNumber)
             {
-                counter++;
-                genericNumber = GenericNumber();
-                if (input == genericNumber)
-                {
-                    response = "Congratulating you Wine !!";
-                    counter = 0;
-                }
-                else
-                {
-                    response = "Number was not Correct ";
-                }
+                return "the number is lower ";
             }
-            else
+            else if (input < genericNumber)
             {
-                counter++;
-                if (input == genericNumber)
-                {
-                    response = "Congratulating you Wine !!";
-                    counter = 0;
-                }
-                else
-                {
-                    response = "Number was not Correct ";
-                }
+                return "the number is higher ";
             }
-            return response;
+            else if (input == genericNumber)
+            {
+                counter = -1;
+                return "Congratulating you Wine !!";
+            }
+
+            return "the number is between 0 to 100 . ";
         }
 
         public static int GenericNumber()
         {
             Random random = new Random();
-            int number = random.Next(0, 100);
-            return number;
+            return random.Next(0, 100); ;
         }
 
     }
