@@ -26,9 +26,10 @@
                         <p>Gusset Counter: @ViewBag.Counter</p>
                     }
                     <p>Your Guessed  : @ViewBag.Gusset</p>
-                    <p>Your Gusset result : @ViewBag.Result</p>
-
-
+                    @if (ViewBag.Counter != 0)
+                    {
+                        <p>Your Gusset result : @ViewBag.Result</p>
+                    }
                 </h4>
             </div>
         }
