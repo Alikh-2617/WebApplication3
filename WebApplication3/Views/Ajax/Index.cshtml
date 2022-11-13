@@ -1,0 +1,63 @@
+﻿
+<body>
+    @model CreatePerson;
+    <div>
+        <label>Id for details: </label>
+        <input type="text" id="id" name="id" />
+        <button onclick="GetDetails()" id="details" type="submit">Get Details</button>
+        <button onclick="Delete()" id="Delet" type="submit">Delete</button>
+        <button onclick="GetPeople()" type="submit">Get All People</button>
+    </div>
+
+    <div>
+        <div class="row">
+            <h6 class="col">ID</h6>
+            <h6 class="col" >Name</h6>
+            <h6 class="col">City</h6>
+            <h6 class="col">Phone Number </h6>
+            <h6 class="col">Register date  </h6>
+        </div>
+    </div>
+    <div id="div-partial">
+    </div>
+
+
+    <script>
+        function GetDetails() {
+            var inputId = $("#id").val();  // var inputId = docmunt.GetElementById("id").value();
+            
+            $.ajax({
+                type: "POST",  // typ av metod vilken är POST iden läge
+                url: "Ajax/GetDetails?id=" + inputId,   // addressen till funktion]
+                success: function (response) {          // om det gick bra då i DIV plats updatera med den response
+                    $("#div-partial").html(response);
+                }
+            });
+        }
+
+       function Delete() {
+          var inputId = $("#id").val();  
+            $.ajax({
+                type: "POST", 
+                url: "Ajax/Delete?id=" + inputId,   
+                success: function (response) {          
+                    $("#div-partial").html(response);
+                }
+            });
+            alert("Item Deleted ");
+        }
+
+        // skriva ut responsen vilken är en lista av pesroner ! 
+      function GetPeople() {
+            $.ajax({
+                type: "GET", 
+                url: "Ajax/GetAllPeople" ,   
+                success: function (response) {          
+                    $("#div-partial").html(response);
+                }
+            });
+        }
+
+
+    </script>
+</body>

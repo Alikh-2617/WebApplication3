@@ -50,11 +50,16 @@
                                 <a class="nav-link text-dark" asp-controller="Check" asp-action="GetSession">Get Session</a>
                             </li>
                         }
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="People" asp-action="Index"> People </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Ajax" asp-action="Index"> Ajax </a>
+                        </li>
 
                     </ul>
                 </div>
             </div>
-
         </nav>
     </header>
     <div class="container-fluid">
@@ -66,5 +71,7 @@
             &copy; @DateTime.Now   - Ali khawari
         </div>
     </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,0 +1,85 @@
+﻿<!-- så här lägg till man modelen till view -->
+<!--  &model WebApplication3.Models.PersonViewModel  -->
+<!-- Eller man kan till _viewimportsoch skriva [ using statementen där ]  -->
+@model CreatePerson;
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
+    <h2>List Of People </h2>
+    <h5>You can Add new person here or press the Button </h5>
+    <p><a asp-action="Create" class="btn btn-primary"> Add new person </a></p>
+
+    <div>
+        <h5>Create Here</h5>
+        <form asp-action="Create" method="post">
+            <label asp-for="@Model.person.Name"></label>
+            <input asp-for="@Model.person.Name">
+
+            <label asp-for="@Model.person.City"></label>
+            <input asp-for="@Model.person.City">
+
+            <label asp-for="@Model.person.PhoneNumber"></label>
+            <input asp-for="@Model.person.PhoneNumber">
+
+            <input type="submit" value="Create" />
+
+        </form>
+    </div>
+    <br />
+    <br />
+    <div>
+        <h5>Show data as table : </h5>
+        <table class="table">
+            <thead>
+                <!-- Title till tabel -->
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Phone Number </th>
+                    <th>Register date  </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in Model.tempList)
+                {
+                    <tr>
+                        <td>@person.Id</td>
+                        <td>@person.Name</td>
+                        <td>@person.City</td>
+                        <td>@person.PhoneNumber</td>
+                        <td>@person.Register</td>
+                        <td>
+                            <!-- value som tas med klikca på den (person.Id ) och skickas till Action Delete -->
+                            <a asp-action="Delete" asp-route-id=@person.Id class="btn btn-danger"> Delete </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+
+    <!-- View med hjälp av Parial -->
+    <div>
+        <h5>Show Data as Partial View </h5>
+        <div class="row">
+            <h6 class="col">ID</h6>
+            <h6 class="col">Name</h6>
+            <h6 class="col">City</h6>
+            <h6 class="col">Phone Number </h6>
+            <h6 class="col">Register date  </h6>
+        </div>
+
+
+        @foreach (var person in Model.tempList)
+        {
+            <partial name="_personPartial_View" model="person" />
+        }
+    </div>
+</body>
+
