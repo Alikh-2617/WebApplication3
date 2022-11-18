@@ -1,11 +1,29 @@
-﻿@model Person
+﻿@model IEnumerable<Person>
+
+
 
 
 <div class="row">
-    <div class="col" >@Model.Id</div>
-    <div class="col">@Model.Name</div>
-    <div class="col">@Model.City</div>
-    <div class="col">@Model.PhoneNumber</div>
-    <div class="col">@Model.Register</div>
-    <div class="col"><a asp-controller = "People" asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-danger"> Delete</a></div>
+    <div class="col">ID</div>
+    <div class="col">Name</div>
+    <div class="col">City</div>
+    <div class="col">Phone Number</div>
+    <div class="col">Register date</div>
+    <div class="col">&nbsp;</div>
 </div>
+
+
+
+@foreach (var item in Model)
+{
+
+
+
+    <div class="row">
+        <div class="col">@item.Id</div>
+        <div class="col">@item.Name</div>
+        <div class="col">@item.City</div>
+        <div class="col">@item.PhoneNumber</div>
+        <div class="col">@item.Register</div>
+    </div>
+}

@@ -8,16 +8,16 @@ namespace WebApplication3.Controllers
     {
         public IActionResult Index()
         {
-            if(CreatePerson.listOfPeople.Count ==0)
+            if (CreatePerson.listOfPeople.Count == 0)
             {
                 CreatePerson.GeneratePeople();
             }
 
-             // för att temp list är inte static vi bör skapa
-             // en stance av classen föratt kunna komma åt den !
+            // för att temp list är inte static vi bör skapa
+            // en stance av classen föratt kunna komma åt den !
             CreatePerson vm = new CreatePerson();
             vm.tempList = CreatePerson.listOfPeople;  // fylla på den lista med sökande Item 
-            
+
             return View(vm); // skickar till view 
         }
 
@@ -33,15 +33,15 @@ namespace WebApplication3.Controllers
         {
 
 
-            if(person != null)
+            if (person != null)
             {
                 person.Id = Guid.NewGuid().ToString();
                 person.Register = DateTime.Now;
 
                 CreatePerson.listOfPeople.Add(person);
-            } 
+            }
 
-                   // gå till ACTION Indec ( inte till någon VIEW )
+            // gå till ACTION Indec ( inte till någon VIEW )
             return RedirectToAction("Index");
 
             //if (ModelState.IsValid)
@@ -55,10 +55,10 @@ namespace WebApplication3.Controllers
         // action till Delete vilken sker när man klicka på Delet button och tagit (person.Id) med sig 
         public IActionResult Delete(string id)
         {
-                                             // första item (people med den ID som hittas i listan)
+            // första item (people med den ID som hittas i listan)
             var personToDelete = CreatePerson.listOfPeople.FirstOrDefault(x => x.Id == id);
 
-            if(personToDelete != null)
+            if (personToDelete != null)
             {
                 CreatePerson.listOfPeople.Remove(personToDelete);
             }

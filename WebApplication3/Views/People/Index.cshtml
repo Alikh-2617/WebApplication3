@@ -8,6 +8,12 @@
 }
 
 <body>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<body>
     <h2>List Of People </h2>
     <h5>You can Add new person here or press the Button </h5>
     <p><a asp-action="Create" class="btn btn-primary"> Add new person </a></p>
@@ -78,8 +84,9 @@
 
         @foreach (var person in Model.tempList)
         {
-            <partial name="_personPartial_View" model="person" />
+                <partial name="_PartialView" model="person" />
         }
     </div>
+</body>
 </body>
 
