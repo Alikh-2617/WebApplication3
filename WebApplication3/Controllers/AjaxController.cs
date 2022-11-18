@@ -36,20 +36,21 @@ namespace WebApplication3.Controllers
             return View();
         }
 
+
+        [HttpPost]
         public IActionResult GetAllPeople()
         {
             if (CreatePerson.listOfPeople.Count == 0)
             {
                 CreatePerson.GeneratePeople();
             }
-
-            // för att temp list är inte static vi bör skapa
-            // en stance av classen föratt kunna komma åt den !
-            CreatePerson vm = new CreatePerson();
-            vm.tempList = CreatePerson.listOfPeople;  // fylla på den lista med sökande Item 
-
-            return View(vm); // skickar till view 
             
+            CreatePerson vm = new CreatePerson();
+            vm.tempList = CreatePerson.listOfPeople;
+
+            return PartialView("_personPartial_View", vm);
+
+
         }
 
     }
