@@ -17,11 +17,17 @@ app.UseSession();  // läggs till Sessen till när appen buildas
 app.UseStaticFiles();
 app.UseRouting();
 
-app.MapControllerRoute(name: "feverCheck",   // namnet som skrevs i url
-                       pattern: "feverCheck", // plats till url alltså direckt efter domain namn
-                       defaults: new { controller = "Doctor", action = "FeverCheck" }); // platsen (pattern) till den aktion
 
 //--------------------------------------------------------------------------------------
+
+app.MapControllerRoute(name: "guessinggame",   // namnet som skrevs i url
+                       pattern: "GuessingGame", // plats till url alltså direckt efter domain namn
+                       defaults: new { controller = "GuessingGame", action = "Game" }); // platsen (pattern) till den aktion
+
+app.MapControllerRoute(name: "checkage",   // namnet som skrevs i url
+                       pattern: "checkage", // plats till url alltså direckt efter domain namn
+                       defaults: new { controller = "Check", action = "CheckAge" }); // platsen (pattern) till den aktion
+
 app.MapControllerRoute(name:"checkage" ,   // namnet som skrevs i url
                        pattern:"checkage", // plats till url alltså direckt efter domain namn
                        defaults: new {controller = "Check" , action = "CheckAge"}); // platsen (pattern) till den aktion

@@ -22,13 +22,13 @@ namespace WebApplication3.Controllers
         {
             if(GameModel.counter == 0)
             {
-                HttpContext.Session.SetInt32("Session", GameModel.GenericNumber());
+                HttpContext.Session.SetInt32("GeneretNumber", GameModel.GenericNumber());
             }
-            ViewBag.Result = GameModel.Game(input, (int)HttpContext.Session.GetInt32("Session"));
+            ViewBag.Result = GameModel.Game(input, (int)HttpContext.Session.GetInt32("GeneretNumber"));
             ViewBag.Counter = GameModel.counter;
             ViewBag.Gusset = input;
 
-            ViewBag.generedNumber1 = (int)HttpContext.Session.GetInt32("Session");
+            ViewBag.generedNumber1 = (int)HttpContext.Session.GetInt32("GeneretNumber");
 
             return View();
         }
