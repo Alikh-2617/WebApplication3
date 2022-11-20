@@ -17,11 +17,12 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public IActionResult GetDetails(string id)
         {
-         // lagera en person model i variabellen   /  hittar personen i lista med ID 
+            // lagera en person model i variabellen   /  hittar personen i lista med ID
             Person person = CreatePerson.listOfPeople.FirstOrDefault(x => x.Id == id);
-
-            // skickar en partial view som tar in en person model 
-            return PartialView("_personPartial_View", person);
+            List<Person> tempList = new List<Person>();
+            tempList.Add(person);
+            // skickar en partial view som tar in en person model
+            return PartialView("_personPartial_View", tempList);
         }
 
         public IActionResult Delete(string id)
@@ -33,7 +34,7 @@ namespace WebApplication3.Controllers
             {
                 CreatePerson.listOfPeople.Remove(personToDelete);
             }
-            return View();
+            return PartialView("_personPartial_View", CreatePerson.listOfPeople);
         }
 
 
@@ -48,7 +49,7 @@ namespace WebApplication3.Controllers
             CreatePerson vm = new CreatePerson();
             vm.tempList = CreatePerson.listOfPeople;
 
-            return PartialView("_personPartial_View", vm);
+            return PartialView("_personPartial_View", CreatePerson.listOfPeople);
 
 
         }

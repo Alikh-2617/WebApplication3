@@ -1,6 +1,8 @@
-﻿namespace WebApplication3.Models
+﻿using System.Collections;
+
+namespace WebApplication3.Models
 {
-    public class CreatePerson
+    public class CreatePerson : IEnumerable
     {
         // view till tabel modeln person 
 
@@ -9,6 +11,7 @@
         public static List<Person> listOfPeople = new List<Person>();
 
         public List<Person> tempList = new List<Person>();
+        public List<Person> tempList1 = new List<Person>();
 
 
         // om vi vill ta data direkt från label felt
@@ -22,6 +25,11 @@
             listOfPeople.Add( new Person{ Id = Guid.NewGuid().ToString(),Name = "seif ssssssss ", City = "staden 2", PhoneNumber = "123456789",Register = DateTime.Now});
             listOfPeople.Add( new Person{ Id = Guid.NewGuid().ToString(),Name = "meakel khakha  ", City = "staden 3", PhoneNumber = "123456789",Register = DateTime.Now});
 
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            throw new NotImplementedException();
         }
     }
 }
