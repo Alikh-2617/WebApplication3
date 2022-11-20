@@ -65,7 +65,30 @@ namespace WebApplication3.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpPost]
+        public IActionResult Serch(string name)
+        {
 
+            if (CreatePerson.listOfPeople.Count == 0)
+            {
+                CreatePerson.GeneratePeople();
+            }
+
+            CreatePerson vm = new CreatePerson();
+            vm.tempList = CreatePerson.listOfPeople; 
+
+            Person person = CreatePerson.listOfPeople.FirstOrDefault(x =>
+                string.Equals(x.Name, name, StringComparison.Ordinal));
+
+            if (person != null)
+            {
+                vm.tempList1.Add(person);
+                ViewBag.Result = "get";
+                // hur ska skicka den till view index ! 
+            }
+
+            return View("Index" , vm);
+        }
 
     }
 }
