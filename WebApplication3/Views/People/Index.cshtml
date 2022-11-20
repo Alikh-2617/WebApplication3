@@ -18,6 +18,18 @@
     <h5>You can Add new person here or press the Button </h5>
     <p><a asp-action="Create" class="btn btn-primary"> Add new person </a></p>
 
+        <div>
+
+        <form asp-action="Serch" method="post">
+            <label> Innan du söka efter Någon bör du lägga till först och Skrev Namn för att söka : </label>
+            <input name="name" />  <!-- name för controller-->
+            <input type="submit" value="Serch" class="btn btn-primary" />
+            <a asp-action="Index" class="btn bg-info"> Länk till Lista </a>
+        </form>
+
+    </div>
+    
+    
     <div>
         <h5>Create Here</h5>
         <form asp-action="Create" method="post">
