@@ -11,6 +11,7 @@ namespace WebApplication3.Models
         public static List<Person> listOfPeople = new List<Person>();
 
         public List<Person> tempList = new List<Person>();
+        public List<Person> tempList1 = new List<Person>();
 
 
         // om vi vill ta data direkt från label felt
