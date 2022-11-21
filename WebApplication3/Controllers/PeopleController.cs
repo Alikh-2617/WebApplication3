@@ -29,7 +29,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]                  // istället (string name , int age , string phonenumber)
-        public IActionResult Create(Person person)
+        public IActionResult Create(PersonVM person)
         {
 
 
@@ -75,16 +75,13 @@ namespace WebApplication3.Controllers
             }
 
             CreatePerson vm = new CreatePerson();
-            vm.tempList = CreatePerson.listOfPeople; 
 
-            Person person = CreatePerson.listOfPeople.FirstOrDefault(x =>
+            PersonVM person = CreatePerson.listOfPeople.FirstOrDefault(x =>
                 string.Equals(x.Name, name, StringComparison.Ordinal));
 
             if (person != null)
             {
-                vm.tempList1.Add(person);
-                ViewBag.Result = "get";
-                // hur ska skicka den till view index ! 
+                vm.tempList.Add(person);
             }
 
             return View("Index" , vm);

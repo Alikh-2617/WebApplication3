@@ -80,25 +80,6 @@
             </tbody>
         </table>
     </div>
-
-
-    <!-- View med hjälp av Parial -->
-    <div>
-        <h5>Show Data as Partial View </h5>
-        <div class="row">
-            <h6 class="col">ID</h6>
-            <h6 class="col">Name</h6>
-            <h6 class="col">City</h6>
-            <h6 class="col">Phone Number </h6>
-            <h6 class="col">Register date  </h6>
-        </div>
-
-
-        @foreach (var person in Model.tempList)
-        {
-                <partial name="_PartialView" model="person" />
-        }
-    </div>
 </body>
 </body>
 

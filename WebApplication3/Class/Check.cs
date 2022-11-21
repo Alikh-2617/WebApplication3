@@ -1,6 +1,6 @@
-﻿namespace WebApplication3.Models
+﻿namespace WebApplication3.Data
 {
-    public class CheckModel
+    public class Check
     {
         public static string CheckAge(int age)
         {

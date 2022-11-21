@@ -18,8 +18,8 @@ namespace WebApplication3.Controllers
         public IActionResult GetDetails(string id)
         {
             // lagera en person model i variabellen   /  hittar personen i lista med ID
-            Person person = CreatePerson.listOfPeople.FirstOrDefault(x => x.Id == id);
-            List<Person> tempList = new List<Person>();
+            PersonVM person = CreatePerson.listOfPeople.FirstOrDefault(x => x.Id == id);
+            List<PersonVM> tempList = new List<PersonVM>();
             tempList.Add(person);
             // skickar en partial view som tar in en person model
             return PartialView("_personPartial_View", tempList);

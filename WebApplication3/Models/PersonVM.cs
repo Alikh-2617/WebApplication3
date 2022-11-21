@@ -1,6 +1,6 @@
 ﻿namespace WebApplication3.Models
 {
-    public class Person
+    public class PersonVM
     {
         // properti till Modelen till tabel Pesron  
         public string Id { get; set; }

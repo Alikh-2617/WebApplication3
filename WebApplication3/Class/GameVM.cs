@@ -1,6 +1,6 @@
-﻿namespace WebApplication3.Models
+﻿namespace WebApplication3.Data
 {
-    public class GameModel
+    public class GameVM
     {
         public static int counter = 0;
 

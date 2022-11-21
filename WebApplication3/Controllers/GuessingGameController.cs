@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using WebApplication3.Models;
+using WebApplication3.Data;
 
 namespace WebApplication3.Controllers
 {
@@ -20,12 +20,12 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public IActionResult Game(int input)
         {
-            if(GameModel.counter == 0)
+            if(GameVM.counter == 0)
             {
-                HttpContext.Session.SetInt32("GeneretNumber", GameModel.GenericNumber());
+                HttpContext.Session.SetInt32("GeneretNumber", GameVM.GenericNumber());
             }
-            ViewBag.Result = GameModel.Game(input, (int)HttpContext.Session.GetInt32("GeneretNumber"));
-            ViewBag.Counter = GameModel.counter;
+            ViewBag.Result = GameVM.Game(input, (int)HttpContext.Session.GetInt32("GeneretNumber"));
+            ViewBag.Counter = GameVM.counter;
             ViewBag.Gusset = input;
 
             ViewBag.generedNumber1 = (int)HttpContext.Session.GetInt32("GeneretNumber");

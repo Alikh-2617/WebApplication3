@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using WebApplication3.Models;
+using WebApplication3.Data;
 
 namespace WebApplication3.Controllers
 {
@@ -19,7 +19,7 @@ namespace WebApplication3.Controllers
         [HttpPost]
         public IActionResult FeverCheck(int input)
         {
-            ViewBag.Result = FeverCheckModel.FeverCheck(input);
+            ViewBag.Result = FeverVM.FeverCheck(input);
             return View();
         }
     }
