@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
-using WebApplication3.Data;
+using WebApplication3.Models;
 
 namespace WebApplication3.Controllers
 {

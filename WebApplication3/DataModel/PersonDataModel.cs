@@ -1,4 +1,4 @@
-﻿namespace WebApplication3.Models
+﻿namespace WebApplication3.DataModel
 {
     public class PersonVM
     {

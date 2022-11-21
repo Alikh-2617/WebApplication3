@@ -18,8 +18,8 @@ namespace WebApplication3.Controllers
         public IActionResult GetDetails(string id)
         {
             // lagera en person model i variabellen   /  hittar personen i lista med ID
-            PersonVM person = CreatePerson.listOfPeople.FirstOrDefault(x => x.Id == id);
-            List<PersonVM> tempList = new List<PersonVM>();
+            PersonDataModel person = CreatePersonVM.listOfPeople.FirstOrDefault(x => x.Id == id);
+            List<PersonDataModel> tempList = new List<PersonDataModel>();
             tempList.Add(person);
             // skickar en partial view som tar in en person model
             return PartialView("_personPartial_View", tempList);
@@ -28,28 +28,28 @@ namespace WebApplication3.Controllers
         public IActionResult Delete(string id)
         {
             // första item (people med den ID som hittas i listan)
-            var personToDelete = CreatePerson.listOfPeople.FirstOrDefault(x => x.Id == id);
+            var personToDelete = CreatePersonVM.listOfPeople.FirstOrDefault(x => x.Id == id);
 
             if (personToDelete != null)
             {
-                CreatePerson.listOfPeople.Remove(personToDelete);
+                CreatePersonVM.listOfPeople.Remove(personToDelete);
             }
-            return PartialView("_personPartial_View", CreatePerson.listOfPeople);
+            return PartialView("_personPartial_View", CreatePersonVM.listOfPeople);
         }
 
 
         [HttpPost]
         public IActionResult GetAllPeople()
         {
-            if (CreatePerson.listOfPeople.Count == 0)
+            if (CreatePersonVM.listOfPeople.Count == 0)
             {
-                CreatePerson.GeneratePeople();
+                CreatePersonVM.GeneratePeople();
             }
             
-            CreatePerson vm = new CreatePerson();
-            vm.tempList = CreatePerson.listOfPeople;
+            CreatePersonVM vm = new CreatePersonVM();
+            vm.tempList = CreatePersonVM.listOfPeople;
 
-            return PartialView("_personPartial_View", CreatePerson.listOfPeople);
+            return PartialView("_personPartial_View", CreatePersonVM.listOfPeople);
 
 
         }

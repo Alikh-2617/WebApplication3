@@ -1,4 +1,4 @@
-﻿namespace WebApplication3.Data
+﻿namespace WebApplication3.Models
 {
     public class FeverVM
     {

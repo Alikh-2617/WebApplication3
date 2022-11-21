@@ -8,15 +8,15 @@ namespace WebApplication3.Controllers
     {
         public IActionResult Index()
         {
-            if (CreatePerson.listOfPeople.Count == 0)
+            if (CreatePersonVM.listOfPeople.Count == 0)
             {
-                CreatePerson.GeneratePeople();
+                CreatePersonVM.GeneratePeople();
             }
 
             // för att temp list är inte static vi bör skapa
             // en stance av classen föratt kunna komma åt den !
-            CreatePerson vm = new CreatePerson();
-            vm.tempList = CreatePerson.listOfPeople;  // fylla på den lista med sökande Item 
+            CreatePersonVM vm = new CreatePersonVM();
+            vm.tempList = CreatePersonVM.listOfPeople;  // fylla på den lista med sökande Item 
 
             return View(vm); // skickar till view 
         }
@@ -29,7 +29,7 @@ namespace WebApplication3.Controllers
         }
 
         [HttpPost]                  // istället (string name , int age , string phonenumber)
-        public IActionResult Create(PersonVM person)
+        public IActionResult Create(PersonDataModel person)
         {
 
 
@@ -38,7 +38,7 @@ namespace WebApplication3.Controllers
                 person.Id = Guid.NewGuid().ToString();
                 person.Register = DateTime.Now;
 
-                CreatePerson.listOfPeople.Add(person);
+                CreatePersonVM.listOfPeople.Add(person);
             }
 
             // gå till ACTION Indec ( inte till någon VIEW )
@@ -56,11 +56,11 @@ namespace WebApplication3.Controllers
         public IActionResult Delete(string id)
         {
             // första item (people med den ID som hittas i listan)
-            var personToDelete = CreatePerson.listOfPeople.FirstOrDefault(x => x.Id == id);
+            var personToDelete = CreatePersonVM.listOfPeople.FirstOrDefault(x => x.Id == id);
 
             if (personToDelete != null)
             {
-                CreatePerson.listOfPeople.Remove(personToDelete);
+                CreatePersonVM.listOfPeople.Remove(personToDelete);
             }
             return RedirectToAction("Index");
         }
@@ -69,15 +69,15 @@ namespace WebApplication3.Controllers
         public IActionResult Serch(string name)
         {
 
-            if (CreatePerson.listOfPeople.Count == 0)
+            if (CreatePersonVM.listOfPeople.Count == 0)
             {
-                CreatePerson.GeneratePeople();
+                CreatePersonVM.GeneratePeople();
             }
             //Testar git
 
-            CreatePerson vm = new CreatePerson();
+            CreatePersonVM vm = new CreatePersonVM();
 
-            PersonVM person = CreatePerson.listOfPeople.FirstOrDefault(x =>
+            PersonDataModel person = CreatePersonVM.listOfPeople.FirstOrDefault(x =>
                 string.Equals(x.Name, name, StringComparison.Ordinal));
 
             if (person != null)
